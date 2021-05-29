@@ -5,9 +5,16 @@
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-auto-flow: row dense;
     grid-auto-flow: dense;
+    grid-gap: 1rem;
+    max-width: 500px;
+    min-height: 400px;
+    margin: 0 auto;
 }
 
 .cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: auto;
     text-align: center;
     font-family: 'Courier New', Courier, monospace;
@@ -15,6 +22,7 @@
     border-width: 0.5px;
     color: white;
     border-color: black;
+    cursor: pointer;
 }
 
 .display {
