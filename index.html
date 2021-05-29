@@ -4,43 +4,33 @@
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
-    <div class="calc-container">
-      <div class="cell display"><div></div></div>
-      <div class="cell clear">C</div>
-      <div class="cell signed">+/-</div>
-      <div class="cell percentage">%</div>
-      <div class="cell operator">/</div>
-      <div class="cell number">7</div>
-      <div class="cell number">8</div>
-      <div class="cell number">9</div>
-      <div class="cell operator">*</div>
-      <div class="cell number">4</div>
-      <div class="cell number">5</div>
-      <div class="cell number">6</div>
-      <div class="cell operator">-</div>
-      <div class="cell number">1</div>
-      <div class="cell number">2</div>
-      <div class="cell number">3</div>
-      <div class="cell operator">+</div>
-      <div class="cell number" id="zero">0</div>
-      <div class="cell decimal">.</div>
-      <div class="cell operator">=</div>
+    <div class="calculator">
+        <div class="calculator-display">0</div>
+        <div class="calculator-btns">
+            <button data-action="clear">C</button>
+            <button data-action="sign">+/-</button>
+            <button data-action="percent">%</button>
+            <button class="btn-operator">/</button>
+            <button>7</button>
+            <button>8</button>
+            <button>9</button>
+            <button class="btn-operator" data-action="multiply">*</button>
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button class="btn-operator" data-action="subtract">-</button>
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button class="btn-operator" data-action="add">+</button>
+            <button id="zero">0</button>
+            <button data-action="decimal">.</button>
+            <button data-action="calculate">=</button>
+        </div>
     </div>
 
-    <script>
-      const calcContainer = document.querySelector(".calc-container");
 
-      calcContainer.addEventListener("click", function (e) {
-        console.log(e.target);
+    <script src="index.js"></script>
 
-        // Event Delegation
-        // code past this if statement will only run if its a cell that was clicked on.
-        if (!e.target.matches(".cell")) return;
-
-        const val = e.target.textContent;
-        console.log(val)
-
-      });
-    </script>
   </body>
 </html>
