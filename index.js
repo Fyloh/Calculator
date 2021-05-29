@@ -12,6 +12,12 @@ calculator_btns.addEventListener("click", function (e) {
         const btnContent = btn.textContent;
         const btnAction = btn.dataset.action;
 
+        // If any button was 'depressed', remove its depressed property
+        var btns = calculator_btns.getElementsByTagName('button');
+        for (item of btns) {
+            console.log(item)
+            item.classList.remove('is-depressed');
+        }
 
         if (!btnAction) {
             console.log('Number Key!');
@@ -26,18 +32,18 @@ calculator_btns.addEventListener("click", function (e) {
         }
 
         if (btnAction == 'add' || btnAction == 'subtract' || btnAction == 'multiply' || btnAction == 'divide') {
+            btn.classList.add('is-depressed');
             console.log('Operator Key!');
         }
 
         if (btnAction == 'decimal') {
             console.log('Decimal Key!');
-
             calculator_display.textContent += '.';
-
         }
 
         if (btnAction == 'clear') {
             console.log('Clear Key!');
+            calculator_display.textContent = '0';
         }
 
         if (btnAction == 'calculate') {
