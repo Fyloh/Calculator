@@ -1,12 +1,14 @@
 .calculator-display {
-    width: 400px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-auto-flow: row dense;
-    grid-auto-flow: dense;
-    max-width: 500px;
-    min-height: 100px;
-    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: 394px;
+    height: 100px;
+    background-color: rgb(199, 199, 199);
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
 }
 
 .calculator-btns {
@@ -18,7 +20,25 @@
     max-width: 500px;
     min-height: 400px;
     margin: 0 auto;
-    color: darkkhaki;
+}
+
+.calculator-btns button {
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    color: white;
+}
+
+.btn-operator {
+    background-color: rgb(233, 188, 74);
+}
+
+.btn-misc {
+    background-color: rgb(105, 105, 105);
+}
+
+.is-depressed {
+    background-color: darkgray;
 }
 
 #zero {

@@ -15,7 +15,6 @@ calculator_btns.addEventListener("click", function (e) {
         // If any button was 'depressed', remove its depressed property
         var btns = calculator_btns.getElementsByTagName('button');
         for (item of btns) {
-            console.log(item)
             item.classList.remove('is-depressed');
         }
 
