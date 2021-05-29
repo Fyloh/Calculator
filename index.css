@@ -1,3 +1,7 @@
+body {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 .calculator-display {
     display: flex;
     justify-content: center;
@@ -9,6 +13,16 @@
     border-width: 1px;
     border-style: solid;
     border-color: black;
+    position: relative;
+}
+
+.calculator-display div {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-right: 7px;
+    margin-bottom: 7px;
+    font-size: 30px;
 }
 
 .calculator-btns {

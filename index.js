@@ -1,6 +1,6 @@
 
 const calculator = document.querySelector(".calculator");
-const calculator_display = document.querySelector('.calculator-display');
+const calculator_display = document.querySelector('.calculator-display div');
 const calculator_btns = document.querySelector(".calculator-btns");
 
 calculator_btns.addEventListener("click", function (e) {
@@ -12,16 +12,27 @@ calculator_btns.addEventListener("click", function (e) {
         const btnContent = btn.textContent;
         const btnAction = btn.dataset.action;
 
-        // If any button was 'depressed', remove its depressed property
+        // If any button was 'depressed', remove its depressed property and 
+        // save which button was 'depressed'
         var btns = calculator_btns.getElementsByTagName('button');
+        var btn_depressed = null;
         for (item of btns) {
-            item.classList.remove('is-depressed');
+            if (item.classList.contains('is-depressed')) {
+                btn_depressed = item;
+                item.classList.remove('is-depressed');
+                break;
+            }
         }
 
         if (!btnAction) {
             console.log('Number Key!');
 
-            if (calculator_display.textContent == '0') {
+            if (calculator_display.textContent.length >= 23) {
+                // do nothing
+                // we don't want to display past our bounds
+            }
+
+            else if (calculator_display.textContent == '0') {
                 calculator_display.textContent = btn.textContent;
             }
 
@@ -31,8 +42,11 @@ calculator_btns.addEventListener("click", function (e) {
         }
 
         if (btnAction == 'add' || btnAction == 'subtract' || btnAction == 'multiply' || btnAction == 'divide') {
-            btn.classList.add('is-depressed');
             console.log('Operator Key!');
+            
+            btn.classList.add('is-depressed');
+
+
         }
 
         if (btnAction == 'decimal') {
