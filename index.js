@@ -3,7 +3,7 @@ class Calculator {
         this.left = null;
         this.right = null;
         this.operator = null;
-        this.result = null;
+
         this.display = display;
         this.btns = btns;
     }
@@ -33,32 +33,36 @@ class Calculator {
         const btnAction = btn.dataset.action;
 
         if (btnAction == 'decimal') {
-            console.log('Decimal Key!');
             this.display.textContent += '.';
         }
 
         if (btnAction == 'clear') {
-            console.log('Clear Key!');
             this.display.textContent = '0';
-            this.operator = null;
-            this.right = null;
+            this.clearOperatorAndRight();
         }
 
         if (btnAction == 'calculate') {
-            console.log('Equals Key!');
 
             if (this.right != null) {
                 this.display.textContent = eval(this.left + this.operator + this.right).toString();
+                this.clearOperatorAndRight();
             }
         }
 
         if (btnAction == 'sign') {
-            console.log('Signed Key!');
+            if (parseFloat(this.display.textContent) > 0) {
+                this.display.textContent = "-" + this.display.textContent;
+            } 
+            else {
+                this.display.textContent = this.display.textContent.replace('-', '');
+            }
         }
 
         if (btnAction == 'percent') {
-            console.log('Percent Key!');
+            this.display.textContent = eval(this.display.textContent +  "/ 100").toString();
         }
+
+        this.assignValueToCorrectSide();
     }
 
     updateDisplay(btn) {
@@ -79,6 +83,20 @@ class Calculator {
             this.display.textContent += btn.textContent;
         }
 
+    }
+
+    clearOperatorAndRight() {
+        this.operator = null;
+        this.right = null;
+    }
+
+    assignValueToCorrectSide() {
+        if (this.operator == null) {
+            this.left = this.display.textContent;
+        }
+        else {
+            this.right = this.display.textContent;
+        }
     }
 };
 
